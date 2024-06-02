@@ -153,19 +153,22 @@
       var screens = document.querySelectorAll('.screen');
       var links = document.querySelectorAll('.menu a');
       
-      // 先移除所有激活状态
-      for (var j = 0; j < links.length; j++) {
-        links[j].classList.remove('active');
-      }
+      // 使用requestAnimationFrame来优化类的添加和移除
+      requestAnimationFrame(function() {
+        // 先移除所有激活状态
+        for (var j = 0; j < links.length; j++) {
+          links[j].classList.remove('active');
+        }
 
-      // 再显示新屏幕
-      for (var i = 0; i < screens.length; i++) {
-        screens[i].style.display = 'none';
-      }
-      document.getElementById(screenId + 'Screen').style.display = 'block';
+        // 再显示新屏幕
+        for (var i = 0; i < screens.length; i++) {
+          screens[i].style.display = 'none';
+        }
+        document.getElementById(screenId + 'Screen').style.display = 'block';
 
-      // 最后添加新激活状态
-      document.getElementById(screenId + 'Link').classList.add('active');
+        // 最后添加新激活状态
+        document.getElementById(screenId + 'Link').classList.add('active');
+      });
     }
 
     // 导航到指定的URL
