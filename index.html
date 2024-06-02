@@ -4,40 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MY</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
   }
 
   .menu {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #333;
     padding: 15px 30px;
     text-align: left;
     margin-bottom: 20px;
   }
 
   .menu a, .menu .site-name {
-    color: #007bff;
+    color: #fff;
     text-decoration: none;
     margin-right: 30px;
     display: inline-block;
-    transition: color 0.3s ease;
-  }
-
-  .menu a:hover, .menu .site-name:hover {
-    color: #0056b3;
   }
 
   .menu a {
-    padding: 8px 16px;
+    padding: 12px 20px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .menu .site-name {
@@ -54,41 +47,100 @@
   }
 
   .button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    padding: 20px;
+    text-align: center;
     font-size: 36px;
     font-weight: bold;
-    text-align: center;
-    margin: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px auto;
+    background-color: #007bff;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+  .button span {
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+
+  .button:active {
+    transform: scale(0.95);
   }
 
   @media screen and (max-width: 480px) {
-    .menu a, .menu .site-name {
-      font-size: 14px;
-      margin-right: 10px;
+    .menu .site-name {
+      font-size: 12px;
+      margin-right: 15px;
+    }
+
+    .menu a {
+      font-size: 9px;
+      margin-right: 15px;
+      padding: 6px 10px;
     }
 
     .button {
-      padding: 15px;
-      font-size: 28px;
+      width: 100px;
+      height: 100px;
+      font-size: 24px;
+      margin-top: -20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 </style>
 </head>
 <body>
-  <!-- Your HTML content goes here -->
+  <div class="menu">
+    <span class="site-name">MY</span>
+    <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
+    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
+    <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
+  </div>
+
+  <div class="button-container">
+    <div id="mynasScreen" class="screen">
+      <div class="button" onclick="navigateTo('https://iwlyfmyc.ddnsto.com:443')"><span>GO</span></div>
+    </div>
+    <div id="chatgptScreen" class="screen" style="display: none;">
+      <div class="button" onclick="navigateTo('https://chatgpt.com/')"><span>Chat</span></div>
+    </div>
+    <div id="googleScreen" class="screen" style="display: none;">
+      <div class="button" onclick="navigateTo('https://www.google.com')"><span>Goo</span></div>
+    </div>
+  </div>
+
+  <script>
+    function showScreen(screenId) {
+      var screens = document.querySelectorAll('.screen');
+      for (var i = 0; i < screens.length; i++) {
+        screens[i].style.display = 'none';
+      }
+      document.getElementById(screenId + 'Screen').style.display = 'block';
+
+      var links = document.querySelectorAll('.menu a');
+      for (var j = 0; j < links.length; j++) {
+        links[j].classList.remove('active');
+      }
+      document.getElementById(screenId + 'Link').classList.add('active');
+    }
+
+    function navigateTo(url) {
+      setTimeout(function() { window.location.href = url; }, 300);
+    }
+
+    window.onload = function() {
+      showScreen('mynas');
+    };
+  </script>
 </body>
 </html>
