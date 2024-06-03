@@ -18,8 +18,6 @@
     padding: 15px 30px;
     text-align: left;
     margin-bottom: 20px;
-    display: flex; /* 使用 flex 布局 */
-    justify-content: space-between; /* 使主轴上的空间均匀分布 */
   }
 
   .menu a, .menu .site-name {
@@ -37,7 +35,7 @@
   }
 
   .menu a:active {
-    background-color: #ddd;
+    background-color: #007bff; /* 更醒目的激活状态颜色 */
   }
 
   .menu .site-name {
@@ -103,13 +101,10 @@
 </head>
 <body>
   <div class="menu">
-    <div>
-      <span class="site-name">MY</span>
-      <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
-      <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
-      <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
-    </div>
-    <img src="settings-icon.png" class="settings-icon" onclick="showScreen('settings')" alt="Settings"> <!-- 添加设置图标 -->
+    <span class="site-name">MY</span>
+    <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
+    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
+    <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
   </div>
 
   <div class="button-container">
@@ -121,9 +116,6 @@
     </div>
     <div id="googleScreen" class="screen" style="display: none;">
       <div class="button" onclick="navigateTo('https://www.google.com')"><span>Goo</span></div>
-    </div>
-    <div id="settingsScreen" class="screen" style="display: none;">
-      <!-- 设置界面的内容 -->
     </div>
   </div>
 
@@ -144,5 +136,5 @@
 
     window.onload = () => showScreen('mynas');
   </script>
-</body>
+  </body>
 </html>
