@@ -4,22 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MY</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 <style>
-  body, html {
+  body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
   }
 
   .menu {
-    background-color: #333; /* 深灰色菜单 */
-    padding: 20px 30px; /* 增加菜单大小 */
+    background-color: #333;
+    padding: 15px 30px;
     text-align: left;
     margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   .menu a, .menu .site-name {
@@ -27,8 +25,12 @@
     text-decoration: none;
     margin-right: 30px;
     display: inline-block;
-    padding: 10px 15px; /* 增加按钮大小 */
-    border-radius: 5px; /* 圆角按钮 */
+  }
+
+  .menu a {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 18px;
   }
 
   .menu .site-name {
@@ -41,49 +43,58 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 150px);
   }
 
   .button {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    cursor: pointer;
+    margin: 20px auto;
     background-color: #007bff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
   }
 
-  .button:hover {
-    background-color: #0056b3;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  .button span {
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+
+  .button:active {
+    transform: scale(0.95);
   }
 
   @media screen and (max-width: 480px) {
-    .menu {
-      padding: 15px; /* 减少填充 */
-    }
     .menu .site-name {
-      font-size: 18px;
-      margin-right: 10px; /* 调整间距 */
+      font-size: 12px;
+      margin-right: 15px;
     }
 
     .menu a {
-      font-size: 14px;
-      margin-right: 10px; /* 调整间距 */
-      padding: 8px 12px;
+      font-size: 9px;
+      margin-right: 15px;
+      padding: 6px 10px;
     }
 
     .button {
-      width: 120px;
-      height: 120px;
-      font-size: 28px;
+      width: 100px;
+      height: 100px;
+      font-size: 24px;
+      margin-top: -20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 </style>
@@ -91,9 +102,9 @@
 <body>
   <div class="menu">
     <span class="site-name">MY</span>
-    <a href="#" id="mynasLink" class="active">MyNas</a>
-    <a href="#" id="chatgptLink">ChatGPT</a>
-    <a href="#" id="googleLink">Google</a>
+    <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
+    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
+    <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
   </div>
 
   <div class="button-container">
@@ -111,42 +122,19 @@
   <script>
     function showScreen(screenId) {
       var screens = document.querySelectorAll('.screen');
-      for (var i = 0; i < screens.length; i++) {
-        screens[i].style.display = 'none';
-      }
+      screens.forEach(screen => screen.style.display = 'none');
       document.getElementById(screenId + 'Screen').style.display = 'block';
 
       var links = document.querySelectorAll('.menu a');
-      for (var j = 0; j < links.length; j++) {
-        links[j].classList.remove('active');
-      }
+      links.forEach(link => link.classList.remove('active'));
       document.getElementById(screenId + 'Link').classList.add('active');
     }
 
     function navigateTo(url) {
-      setTimeout(function() { window.location.href = url; }, 300);
+      setTimeout(() => window.location.href = url, 300);
     }
 
-    window.onload = function() {
-      showScreen('mynas');
-      document.getElementById('mynasLink').classList.add('active');
-    };
-
-    document.body.addEventListener('click', function(e) {
-      var activeLink = document.querySelector('.menu a.active');
-      if (!e.target.matches('.menu a') && activeLink) {
-        activeLink.classList.remove('active');
-      }
-    });
-
-    var menuLinks = document.querySelectorAll('.menu a');
-    menuLinks.forEach(function(link) {
-      link.addEventListener('click', function(event) {
-        event.stopPropagation();
-        menuLinks.forEach(function(lnk) { lnk.classList.remove('active'); });
-        link.classList.add('active');
-      });
-    });
+    window.onload = () => showScreen('mynas');
   </script>
 </body>
 </html>
