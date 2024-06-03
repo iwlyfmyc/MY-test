@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY</title>
+<style>
+  /* ...其他样式... */
+
+  .menu a, .menu .site-name, .menu .settings-icon {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 30px;
+    display: inline-block;
+  }
+
+  .menu .settings-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  /* ...其他样式... */
+</style>
+</head>
+<body>
+  <div class="menu">
+    <span class="site-name">MY</span>
+    <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
+    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
+    <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
+    <img src="settings-icon.png" class="settings-icon" onclick="showScreen('settings')" alt="Settings"> <!-- 添加设置图标 -->
+  </div>
+
+  <div class="button-container">
+    <!-- ...其他屏幕... -->
+    <div id="settingsScreen" class="screen" style="display: none;">
+      <!-- 设置界面的内容 -->
+    </div>
+  </div>
+
+  <script>
+    /* ...其他脚本... */
+
+    window.onload = () => showScreen('mynas');
+  </script>
+</body>
+</html>
