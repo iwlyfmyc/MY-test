@@ -6,7 +6,6 @@
 <title>MY</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 <style>
-  /* 使用Google字体 */
   body, html {
     margin: 0;
     padding: 0;
@@ -15,7 +14,6 @@
     color: #333;
   }
 
-  /* 菜单样式优化 */
   .menu {
     background-color: #007bff;
     padding: 15px 30px;
@@ -41,7 +39,14 @@
     font-weight: bold;
   }
 
-  /* 按钮样式优化 */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 200px); /* 调整按钮位置 */
+  }
+
   .button {
     width: 150px;
     height: 150px;
@@ -63,14 +68,18 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   }
 
-  /* 响应式设计优化 */
   @media screen and (max-width: 480px) {
+    .menu {
+      padding: 15px; /* 减少填充 */
+    }
     .menu .site-name {
       font-size: 18px;
+      margin-right: 10px; /* 调整间距 */
     }
 
     .menu a {
       font-size: 14px;
+      margin-right: 10px; /* 调整间距 */
       padding: 8px 12px;
     }
 
@@ -85,9 +94,9 @@
 <body>
   <div class="menu">
     <span class="site-name">MY</span>
-    <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
-    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
-    <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
+    <a href="#" id="mynasLink" class="active">MyNas</a>
+    <a href="#" id="chatgptLink">ChatGPT</a>
+    <a href="#" id="googleLink">Google</a>
   </div>
 
   <div class="button-container">
@@ -123,7 +132,19 @@
 
     window.onload = function() {
       showScreen('mynas');
+      document.getElementById('mynasLink').classList.add('active');
     };
+
+    document.body.addEventListener('click', function(e) {
+      if (e.target.tagName !== 'A') {
+        var links = document.querySelectorAll('.menu a');
+        for (var i = 0; i < links.length; i++) {
+          if (links[i].classList.contains('active')) {
+            links[i].classList.remove('active');
+          }
+        }
+      }
+    });
   </script>
 </body>
 </html>
