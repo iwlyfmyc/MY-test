@@ -5,44 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MY</title>
 <style>
-body, .menu {margin: 0; padding: 0; background-color: #fff; color: #000; font-family: Arial, sans-serif;}
-.menu {background-color: #333; padding: 15px 30px; text-align: left; margin-bottom: 20px;}
-.menu a {padding: 12px 20px; border-radius: 5px; font-size: 18px; transition: background-color 0.2s; color: #fff; text-decoration: none; margin-right: 30px; display: inline-block;}
-.menu a:active {background-color: #ddd;}
-.button-container {display: flex; justify-content: center; align-items: center; flex-direction: column; height: calc(100vh - 150px);}
-.button {width: 150px; height: 150px; border-radius: 50%; text-align: center; font-size: 36px; font-weight: bold; color: #fff; text-decoration: none; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); overflow: hidden; cursor: pointer; margin: 20px auto; background-color: #007bff; display: flex; justify-content: center; align-items: center;}
-.button:active {transform: scale(0.95);}
-@media screen and (max-width: 480px) {.menu a {font-size: 9px; margin-right: 15px; padding: 6px 10px;}.button {width: 100px; height: 100px; font-size: 24px; margin-top: -20px; display: flex; justify-content: center; align-items: center;}}
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+  }
+
+  .menu {
+    background-color: #333;
+    padding: 15px 30px;
+    text-align: left;
+    margin-bottom: 20px;
+    display: flex; /* 使用 flex 布局 */
+    justify-content: space-between; /* 使主轴上的空间均匀分布 */
+  }
+
+  .menu a, .menu .site-name {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 30px;
+    display: inline-block;
+  }
+
+  .menu a {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.2s;
+  }
+
+  .menu a:active {
+    background-color: #ddd;
+  }
+
+  .menu .site-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 150px);
+  }
+
+  .button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    cursor: pointer;
+    margin: 20px auto;
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button:active {
+    transform: scale(0.95);
+  }
+
+  @media screen and (max-width: 480px) {
+    .menu .site-name {
+      font-size: 12px;
+      margin-right: 15px;
+    }
+
+    .menu a {
+      font-size: 9px;
+      margin-right: 15px;
+      padding: 6px 10px;
+    }
+
+    .button {
+      width: 100px;
+      height: 100px;
+      font-size: 24px;
+      margin-top: -20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 </style>
 </head>
 <body>
-<div class="menu">
-  <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
-  <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
-  <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
-</div>
-<div class="button-container">
-  <div id="mynasScreen" class="screen">
-    <div class="button" onclick="navigateTo('https://iwlyfmyc.ddnsto.com:443')"><span>GO</span></div>
+  <div class="menu">
+    <div>
+      <span class="site-name">MY</span>
+      <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
+      <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
+      <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
+    </div>
+    <img src="settings-icon.png" class="settings-icon" onclick="showScreen('settings')" alt="Settings"> <!-- 添加设置图标 -->
   </div>
-  <div id="chatgptScreen" class="screen" style="display: none;">
-    <div class="button" onclick="navigateTo('https://chatgpt.com/')"><span>Chat</span></div>
+
+  <div class="button-container">
+    <div id="mynasScreen" class="screen">
+      <div class="button" onclick="navigateTo('https://iwlyfmyc.ddnsto.com:443')"><span>GO</span></div>
+    </div>
+    <div id="chatgptScreen" class="screen" style="display: none;">
+      <div class="button" onclick="navigateTo('https://chatgpt.com/')"><span>Chat</span></div>
+    </div>
+    <div id="googleScreen" class="screen" style="display: none;">
+      <div class="button" onclick="navigateTo('https://www.google.com')"><span>Goo</span></div>
+    </div>
+    <div id="settingsScreen" class="screen" style="display: none;">
+      <!-- 设置界面的内容 -->
+    </div>
   </div>
-  <div id="googleScreen" class="screen" style="display: none;">
-    <div class="button" onclick="navigateTo('https://www.google.com')"><span>Goo</span></div>
-  </div>
-</div>
-<script>
-function showScreen(screenId) {
-  var screens = document.querySelectorAll('.screen');
-  screens.forEach(screen => screen.style.display = 'none');
-  document.getElementById(screenId + 'Screen').style.display = 'block';
-  var links = document.querySelectorAll('.menu a');
-  links.forEach(link => link.classList.remove('active'));
-  document.getElementById(screenId + 'Link').classList.add('active');
-}
-function navigateTo(url) {setTimeout(() => window.location.href = url, 300);}
-window.onload = () => showScreen('mynas');
-</script>
+
+  <script>
+    function showScreen(screenId) {
+      var screens = document.querySelectorAll('.screen');
+      screens.forEach(screen => screen.style.display = 'none');
+      document.getElementById(screenId + 'Screen').style.display = 'block';
+
+      var links = document.querySelectorAll('.menu a');
+      links.forEach(link => link.classList.remove('active'));
+      document.getElementById(screenId + 'Link').classList.add('active');
+    }
+
+    function navigateTo(url) {
+      setTimeout(() => window.location.href = url, 300);
+    }
+
+    window.onload = () => showScreen('mynas');
+  </script>
 </body>
 </html>
