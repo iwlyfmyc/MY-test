@@ -5,27 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MY</title>
 <style>
-  /* 导入Google字体 */
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
-
-  /* 设置网页的基本字体和背景颜色 */
-  body {
+  /* 共同样式 */
+  body, html {
     margin: 0;
     padding: 0;
-    background-color: #fff;
-    color: #000;
-    font-family: 'Roboto', sans-serif; /* 更现代的字体 */
+    font-family: Arial, sans-serif;
   }
 
-  /* 设置顶部菜单的样式 */
+  /* 菜单样式 */
   .menu {
-    background-color: #2c3e50; /* 深色背景 */
+    background-color: #333;
     padding: 15px 30px;
     text-align: left;
     margin-bottom: 20px;
   }
 
-  /* 设置菜单中链接和站点名称的样式 */
   .menu a, .menu .site-name {
     color: #fff;
     text-decoration: none;
@@ -33,20 +27,18 @@
     display: inline-block;
   }
 
-  /* 设置菜单中链接的样式 */
   .menu a {
     padding: 12px 20px;
     border-radius: 5px;
     font-size: 18px;
   }
 
-  /* 设置站点名称的样式 */
   .menu .site-name {
     font-size: 24px;
     font-weight: bold;
   }
 
-  /* 设置按钮容器的样式 */
+  /* 按钮容器样式 */
   .button-container {
     display: flex;
     justify-content: center;
@@ -55,7 +47,7 @@
     height: calc(100vh - 150px);
   }
 
-  /* 设置圆形按钮的样式 */
+  /* 按钮样式 */
   .button {
     width: 150px;
     height: 150px;
@@ -66,36 +58,27 @@
     color: #fff;
     text-decoration: none;
     transition: transform 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 更柔和的阴影 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     cursor: pointer;
     margin: 20px auto;
-    background-color: #3498db; /* 亮蓝色按钮 */
+    background-color: #007bff;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* 设置按钮中文字的样式 */
   .button span {
     transition: transform 0.3s ease;
     line-height: 1;
   }
 
-  /* 设置按钮按下去的效果 */
   .button:active {
     transform: scale(0.95);
   }
 
-  /* 设置菜单中链接的悬停效果 */
-  .menu a:hover, .menu a.active {
-    background-color: #3498db; /* 按钮激活效果 */
-    color: #fff;
-  }
-
-  /* 响应式设计：在屏幕宽度小于480px时调整样式 */
+  /* 移动设备样式 */
   @media screen and (max-width: 480px) {
-    /* 调整站点名称和链接的字体大小和间距 */
     .menu .site-name {
       font-size: 12px;
       margin-right: 15px;
@@ -107,7 +90,6 @@
       padding: 6px 10px;
     }
 
-    /* 调整按钮的大小、字体和间距 */
     .button {
       width: 100px;
       height: 100px;
@@ -121,66 +103,13 @@
 </style>
 </head>
 <body>
-  <!-- 顶部菜单 -->
   <div class="menu">
     <span class="site-name">MY</span>
-    <!-- 添加了id属性以便JavaScript操作 -->
-    <a href="#" onclick="showScreen('mynas')" id="mynasLink">MyNas</a>
-    <a href="#" onclick="showScreen('chatgpt')" id="chatgptLink">ChatGPT</a>
+    <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
+    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
     <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
   </div>
 
-  <!-- 按钮容器 -->
   <div class="button-container">
-    <!-- MyNas屏幕 -->
     <div id="mynasScreen" class="screen">
-      <div class="button" onclick="navigateTo('https://iwlyfmyc.ddnsto.com:443')"><span>GO</span></div>
-    </div>
-    <!-- ChatGPT屏幕 -->
-    <div id="chatgptScreen" class="screen" style="display: none;">
-      <div class="button" onclick="navigateTo('https://chatgpt.com/')"><span>Chat</span></div>
-    </div>
-    <!-- Google屏幕 -->
-    <div id="googleScreen" class="screen" style="display: none;">
-      <div class="button" onclick="navigateTo('https://www.google.com')"><span>Goo</span></div>
-    </div>
-  </div>
-
-  <!-- JavaScript脚本 -->
-  <script>
-    // 显示指定的屏幕并设置激活状态的按钮
-    function showScreen(screenId) {
-      var screens = document.querySelectorAll('.screen');
-      var links = document.querySelectorAll('.menu a');
-      
-      // 使用requestAnimationFrame来优化类的添加和移除
-      requestAnimationFrame(function() {
-        // 先移除所有激活状态
-        for (var j = 0; j < links.length; j++) {
-          links[j].classList.remove('active');
-        }
-
-        // 再显示新屏幕
-        for (var i = 0; i < screens.length; i++) {
-          screens[i].style.display = 'none';
-        }
-        document.getElementById(screenId + 'Screen').style.display = 'block';
-
-        // 最后添加新激活状态
-        document.getElementById(screenId + 'Link').classList.add('active');
-      });
-    }
-
-    // 导航到指定的URL
-    function navigateTo(url) {
-      setTimeout(function() { window.location.href = url; }, 300);
-    }
-
-    // 页面加载完成后显示MyNas屏幕并设置相应的按钮为激活状态
-    window.onload = function() {
-      showScreen('mynas');
-      document.getElementById('mynasLink').classList.add('active'); // 设置MyNas按钮为激活状态
-    };
-  </script>
-</body>
-</html>
+      <div class="button" onclick="navigateTo('https://iwlyfmyc.ddnsto.com:443')"><span
