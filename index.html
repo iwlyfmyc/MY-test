@@ -32,6 +32,17 @@
       font-size: 36px; /* 电脑访问时铭牌字体大小 */
       border-radius: 30px; /* 电脑访问时铭牌圆角 */
     }
+
+    .big-button {
+      margin-left: 100px; /* 电脑访问时大按钮距离左侧 */
+      margin-right: 100px; /* 电脑访问时大按钮距离右侧 */
+    }
+
+    .square-button {
+      margin-left: 105px; /* 电脑访问时小按钮距离左侧 */
+      width: 150px; /* 电脑访问时小按钮边长 */
+      height: 150px; /* 电脑访问时小按钮边长 */
+    }
   }
 
   .big-button {
@@ -48,12 +59,6 @@
     text-decoration: none;
   }
 
-  @media screen and (min-width: 768px) {
-    .big-button {
-      margin-top: 200px; /* 电脑访问时大按钮距离上方 */
-    }
-  }
-
   .storage-icon {
     position: relative; /* 添加相对定位 */
     width: 66px;
@@ -68,10 +73,10 @@
     justify-content: center;
     background-color: #fff;
     color: #000;
-    width: 100px; /* 修改为 100px */
-    height: 100px; /* 修改为 100px */
+    width: 120px; /* 手机访问时小按钮边长 */
+    height: 120px; /* 手机访问时小按钮边长 */
     margin-top: 40px; /* 距离大按钮的底部距离，之前的两倍 */
-    margin-left: 20px; /* 修改为 20px */
+    margin-left: 20px; /* 手机访问时小按钮距离左侧 */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -84,14 +89,6 @@
 
   .square-button .button-text {
     display: none; /* 取消按钮文本 */
-  }
-
-  @media screen and (min-width: 768px) {
-    .square-button {
-      margin-left: 95px; /* 电脑访问时按钮距离左侧的距离，比大按钮多5px */
-      width: 120px; /* 电脑访问时修改为 120px */
-      height: 120px; /* 电脑访问时修改为 120px */
-    }
   }
 </style>
 </head>
