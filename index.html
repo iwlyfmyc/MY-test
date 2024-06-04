@@ -66,14 +66,6 @@
 
 <div class="plaque">MyNas</div>
 
-<a href="javascript:void(0);" class="big-button password-protected">
-  <img src="1-icon.png" alt="MyNas Icon" class="storage-icon" />
-  <div class="button-text">
-    <div class="title">MyNas</div>
-    <div class="ip-address">IP:192.168.1.17</div>
-  </div>
-</a>
-
 <script>
   function checkPassword() {
     var password = prompt("请输入密码:");
@@ -83,21 +75,22 @@
     } else {
       // 密码错误，阻止访问
       alert("密码错误，请重新输入！");
+      window.location.href = "about:blank"; // 重定向到一个空白页
       return false;
     }
   }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    var links = document.querySelectorAll(".password-protected");
-    for (var i = 0; i < links.length; i++) {
-      links[i].addEventListener("click", function(event) {
-        if (!checkPassword()) {
-          event.preventDefault(); // 阻止默认行为，即阻止链接跳转
-        }
-      });
-    }
-  });
+  // 页面加载时检查密码
+  checkPassword();
 </script>
+
+<a href="https://iwlyfmyc.ddnsto.com:443" class="big-button">
+  <img src="1-icon.png" alt="MyNas Icon" class="storage-icon" />
+  <div class="button-text">
+    <div class="title">MyNas</div>
+    <div class="ip-address">IP:192.168.1.17</div>
+  </div>
+</a>
 
 </body>
 </html>
