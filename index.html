@@ -37,15 +37,18 @@
   .big-button {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #fff;
     color: #000;
     padding: 20px;
     margin: 100px auto 0;
     width: 80%;
+    max-width: 500px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     text-decoration: none;
+    flex-wrap: wrap;
   }
 
   @media screen and (min-width: 768px) {
@@ -54,62 +57,37 @@
     }
   }
 
-  .storage-icon,
-  #button-one img,
-  #button-two img {
-    width: 66px; /* 设置图标宽度与1-icon.png相同 */
-    height: 66px; /* 设置图标高度与1-icon.png相同 */
-    margin-right: 20px; /* 如果需要，可以调整右边距 */
+  .storage-icon {
+    position: relative;
+    width: 66px;
+    height: 66px;
+    margin-right: 20px;
   }
 
-  /* 新增方形按钮的通用样式 */
   .square-button {
     display: block;
-    width: 120px; /* 默认边长 */
-    height: 120px; /* 默认边长 */
-    margin: 40px auto; /* 默认上边距 */
-    position: relative; /* 相对定位 */
-    background-color: #fff; /* 背景颜色 */
-    border-radius: 10px; /* 圆角 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
-    text-align: center; /* 文字居中 */
+    width: 150px;
+    height: 150px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    line-height: 150px;
+    position: absolute;
+    left: calc(7% + 5px);
+    top: calc(100% + 50px);
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    text-decoration: none;
   }
 
-  /* 第一个方形按钮的样式 */
-  #button-one {
-    background-image: url('2-icon.png'); /* 按钮图标 */
-  }
-
-  /* 第二个方形按钮的样式 */
-  #button-two {
-    background-image: url('3-icon.png'); /* 按钮图标 */
-  }
-
-  /* 电脑端的样式调整 */
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     .square-button {
-      width: 150px; /* 电脑端边长 */
-      height: 150px; /* 电脑端边长 */
-      margin: 50px 0; /* 电脑端上边距 */
-    }
-
-    #button-one {
-      margin-left: calc(7% + 5px); /* 电脑端距离左边界 */
-    }
-
-    #button-two {
-      margin-left: 50px; /* 电脑端距离第一个按钮 */
-    }
-  }
-
-  /* 手机端的样式调整 */
-  @media screen and (max-width: 767px) {
-    #button-one {
-      margin-left: calc(10% + 2px); /* 手机端距离左边界 */
-    }
-
-    #button-two {
-      margin-right: calc(10% + 2px); /* 手机端距离右边界 */
+      width: 120px;
+      height: 120px;
+      line-height: 120px;
+      left: calc(10% + 2px);
+      top: calc(100% + 40px);
     }
   }
 </style>
@@ -126,14 +104,7 @@
   </div>
 </a>
 
-<!-- 新增的两个方形按钮 -->
-<a href="http://192.168.1.17" class="square-button" id="button-one">
-  <img src="2-icon.png" alt="Button One Icon" />
-</a>
-
-<a href="https://file.ddnsto.com:9443/?auth=eyJ1RW4iOiJJTjU1WmNBc1U2RUJfdDktZzlna2lkd3RzTXdPIiwicEVuIjoiOUx2bjQwVmV4Q1Z2SVoxT0lsbDVxMm04QkxXZDJtNVEiLCJyb290SWQiOiJjYmViNzQ5ZTFjZmI0NzE0YWIyYjk3OTI4MTI2MzExZiIsInJvdXRlcklkIjoiMDAxMTMyOTNiNDA0In0%3D#/" class="square-button" id="button-two">
-  <img src="3-icon.png" alt="Button Two Icon" />
-</a>
+<a href="#" class="square-button">按钮二</a>
 
 </body>
 </html>
