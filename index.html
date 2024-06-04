@@ -71,7 +71,7 @@
     width: 80px; /* 修改为 80px */
     height: 80px; /* 修改为 80px */
     margin-top: 20px; /* 距离大按钮的底部距离 */
-    margin-left: 10px; /* 修改为 10px */
+    margin-left: 20px; /* 修改为 20px */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -83,11 +83,13 @@
   }
 
   .square-button .button-text {
-    font-size: 14px; /* 调整文本大小 */
-    position: absolute;
-    bottom: 5px; /* 文本距离按钮底部的距离 */
-    width: 100%;
-    text-align: center; /* 让文本水平居中 */
+    display: none; /* 取消按钮文本 */
+  }
+
+  @media screen and (min-width: 768px) {
+    .square-button {
+      margin-left: 100px; /* 电脑访问时按钮距离左侧的距离 */
+    }
   }
 </style>
 </head>
@@ -105,7 +107,6 @@
 
 <a href="http://192.168.1.17" class="square-button">
   <img src="2-icon.png" alt="2 Icon" class="button-icon" />
-  <div class="button-text">本地连接</div>
 </a>
 
 </body>
