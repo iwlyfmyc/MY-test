@@ -3,145 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MY</title>
+<title>MyNas</title>
 <style>
   body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    color: #000;
     font-family: Arial, sans-serif;
   }
 
-  .menu {
+  .plaque {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     background-color: #333;
-    padding: 15px 30px;
-    text-align: left;
-    margin-bottom: 20px;
-  }
-
-  .menu a, .menu .site-name {
     color: #fff;
-    text-decoration: none;
-    margin-right: 30px;
-    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
   }
 
-  .menu a {
-    padding: 12px 20px;
-    border-radius: 5px;
+  @media screen and (min-width: 768px) {
+    .plaque {
+      top: 40px;
+      left: 40px;
+      padding: 20px 40px;
+      font-size: 36px;
+      border-radius: 30px;
+    }
+  }
+
+  .big-button {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    margin: 200px auto 0;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .storage-icon {
+    width: 33px; /* 调整图标大小 */
+    height: 33px; /* 调整图标大小 */
+    margin-right: 20px; /* 调整图标与文字的距离 */
+  }
+
+  .button-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 确保文字垂直居中 */
+    margin-left: 20px; /* 保持图标与文字的距离 */
+  }
+
+  .button-text .title {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 10px; /* 调整两行文字之间的距离 */
+  }
+
+  .button-text .ip-address {
     font-size: 18px;
   }
 
-  .menu .site-name {
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: calc(100vh - 150px);
-  }
-
-  .button, .button-fm {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    cursor: pointer;
-    margin: 20px auto;
-    background-color: #007bff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .button span, .button-fm span {
-    transition: transform 0.3s ease;
-    line-height: 1;
-  }
-
-  .button:active, .button-fm:active {
-    transform: scale(0.95);
-  }
-
-  @media screen and (max-width: 480px) {
-    .menu .site-name {
-      font-size: 12px;
-      margin-right: 15px;
+  @media screen and (max-width: 768px) {
+    .big-button {
+      margin-top: 100px;
+      width: 80%;
     }
 
-    .menu a {
-      font-size: 9px;
-      margin-right: 15px;
-      padding: 6px 10px;
+    .storage-icon {
+      width: 33px;
+      height: 33px;
     }
 
-    .button, .button-fm {
-      width: 100px;
-      height: 100px;
-      font-size: 24px;
-      margin-top: -20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .button-text .title {
+      font-size: 18px;
+    }
+
+    .button-text .ip-address {
+      font-size: 14px;
     }
   }
 </style>
 </head>
 <body>
-  <div class="menu">
-    <span class="site-name">MY</span>
-    <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
-    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
-    <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
+
+<div class="plaque">MyNas</div>
+
+<a href="https://iwlyfmyc.ddnsto.com:443" class="big-button">
+  <img src="1-icon.png" alt="MyNas Icon" class="storage-icon" />
+  <div class="button-text">
+    <div class="title">MyNas</div>
+    <div class="ip-address">IP:192.168.1.17</div>
   </div>
+</a>
 
-  <div class="button-container">
-    <div id="mynasScreen" class="screen">
-      <div class="button" onclick="navigateTo('https://iwlyfmyc.ddnsto.com:443')"><span>GO</span></div>
-      <div class="button-fm" onclick="navigateTo('https://file.ddnsto.com:9443/?auth=eyJ1RW4iOiJJTjU1WmNBc1U2RUJfdDktZzlna2lkd3RzTXdPIiwicEVuIjoiOUx2bjQwVmV4Q1Z2SVoxT0lsbDVxMm04QkxXZDJtNVEiLCJyb290SWQiOiJjYmViNzQ5ZTFjZmI0NzE0YWIyYjk3OTI4MTI2MzExZiIsInJvdXRlcklkIjoiMDAxMTMyOTNiNDA0In0%3D#/')"><span>Fm</span></div>
-    </div>
-    <div id="chatgptScreen" class="screen" style="display: none;">
-      <div class="button" onclick="navigateTo('https://chatgpt.com/')"><span>Chat</span></div>
-    </div>
-    <div id="googleScreen" class="screen" style="display: none;">
-      <div class="button" onclick="navigateTo('https://www.google.com')"><span>Goo</span></div>
-    </div>
-  </div>
-
-  <script>
-    function showScreen(screenId) {
-      var screens = document.querySelectorAll('.screen');
-      for (var i = 0; i < screens.length; i++) {
-        screens[i].style.display = 'none';
-      }
-      document.getElementById(screenId + 'Screen').style.display = 'block';
-
-      var links = document.querySelectorAll('.menu a');
-      for (var j = 0; j < links.length; j++) {
-        links[j].classList.remove('active');
-      }
-      document.getElementById(screenId + 'Link').classList.add('active');
-    }
-
-    function navigateTo(url) {
-      setTimeout(function() { window.location.href = url; }, 300);
-    }
-
-    window.onload = function() {
-      showScreen('mynas');
-    };
-  </script>
 </body>
 </html>
