@@ -31,11 +31,6 @@
     padding: 12px 20px;
     border-radius: 5px;
     font-size: 18px;
-    transition: background-color 0.2s;
-  }
-
-  .menu a:active {
-    background-color: #ddd;
   }
 
   .menu .site-name {
@@ -51,7 +46,7 @@
     height: calc(100vh - 150px);
   }
 
-  .button {
+  .button, .button-fm {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -71,7 +66,12 @@
     align-items: center;
   }
 
-  .button:active {
+  .button span, .button-fm span {
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+
+  .button:active, .button-fm:active {
     transform: scale(0.95);
   }
 
@@ -87,7 +87,7 @@
       padding: 6px 10px;
     }
 
-    .button {
+    .button, .button-fm {
       width: 100px;
       height: 100px;
       font-size: 24px;
@@ -103,16 +103,17 @@
   <div class="menu">
     <span class="site-name">MY</span>
     <a href="#" onclick="showScreen('mynas')" id="blueLink" class="active">MyNas</a>
-    <a href="#" onclick="showScreen('文件管理')" id="文件管理Link">文件管理</a>
+    <a href="#" onclick="showScreen('chatgpt')" id="baiduLink">ChatGPT</a>
     <a href="#" onclick="showScreen('google')" id="googleLink">Google</a>
   </div>
 
   <div class="button-container">
     <div id="mynasScreen" class="screen">
       <div class="button" onclick="navigateTo('https://iwlyfmyc.ddnsto.com:443')"><span>GO</span></div>
+      <div class="button-fm" onclick="navigateTo('https://file.ddnsto.com:9443/?auth=eyJ1RW4iOiJJTjU1WmNBc1U2RUJfdDktZzlna2lkd3RzTXdPIiwicEVuIjoiOUx2bjQwVmV4Q1Z2SVoxT0lsbDVxMm04QkxXZDJtNVEiLCJyb290SWQiOiJjYmViNzQ5ZTFjZmI0NzE0YWIyYjk3OTI4MTI2MzExZiIsInJvdXRlcklkIjoiMDAxMTMyOTNiNDA0In0%3D#/')"><span>Fm</span></div>
     </div>
-    <div id="文件管理Screen" class="screen" style="display: none;">
-      <div class="button" onclick="navigateTo('https://file.ddnsto.com:9443/?auth=eyJ1RW4iOiJJTjU1WmNBc1U2RUJfdDktZzlna2lkd3RzTXdPIiwicEVuIjoiOUx2bjQwVmV4Q1Z2SVoxT0lsbDVxMm04QkxXZDJtNVEiLCJyb290SWQiOiJjYmViNzQ5ZTFjZmI0NzE0YWIyYjk3OTI4MTI2MzExZiIsInJvdXRlcklkIjoiMDAxMTMyOTNiNDA0In0%3D#/')"><span>Use</span></div>
+    <div id="chatgptScreen" class="screen" style="display: none;">
+      <div class="button" onclick="navigateTo('https://chatgpt.com/')"><span>Chat</span></div>
     </div>
     <div id="googleScreen" class="screen" style="display: none;">
       <div class="button" onclick="navigateTo('https://www.google.com')"><span>Goo</span></div>
@@ -122,19 +123,25 @@
   <script>
     function showScreen(screenId) {
       var screens = document.querySelectorAll('.screen');
-      screens.forEach(screen => screen.style.display = 'none');
+      for (var i = 0; i < screens.length; i++) {
+        screens[i].style.display = 'none';
+      }
       document.getElementById(screenId + 'Screen').style.display = 'block';
 
       var links = document.querySelectorAll('.menu a');
-      links.forEach(link => link.classList.remove('active'));
+      for (var j = 0; j < links.length; j++) {
+        links[j].classList.remove('active');
+      }
       document.getElementById(screenId + 'Link').classList.add('active');
     }
 
     function navigateTo(url) {
-      setTimeout(() => window.location.href = url, 300);
+      setTimeout(function() { window.location.href = url; }, 300);
     }
 
-    window.onload = () => showScreen('mynas');
+    window.onload = function() {
+      showScreen('mynas');
+    };
   </script>
 </body>
 </html>
