@@ -60,29 +60,35 @@
     height: 66px;
     margin-right: 20px;
   }
+
+  .square-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+    padding: 0; /* 移除默认填充 */
+    width: 66px; /* 和大按钮中图标的尺寸一样 */
+    height: 66px; /* 和大按钮中图标的尺寸一样 */
+    margin-top: 20px; /* 距离大按钮的底部距离 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .square-button .button-icon {
+    width: 50%; /* 让图标居中 */
+  }
+
+  .square-button .button-text {
+    font-size: 14px; /* 调整文本大小 */
+  }
 </style>
 </head>
 <body>
 
 <div class="plaque">MyNas</div>
-
-<script>
-  function checkPassword() {
-    var password = prompt("请输入密码:");
-    if (password === "959595") {
-      // 密码正确，允许访问
-      return true;
-    } else {
-      // 密码错误，阻止访问
-      alert("密码错误，请重新输入！");
-      window.location.href = "about:blank"; // 重定向到一个空白页
-      return false;
-    }
-  }
-
-  // 页面加载时检查密码
-  checkPassword();
-</script>
 
 <a href="https://iwlyfmyc.ddnsto.com:443" class="big-button">
   <img src="1-icon.png" alt="MyNas Icon" class="storage-icon" />
@@ -90,6 +96,11 @@
     <div class="title">MyNas</div>
     <div class="ip-address">IP:192.168.1.17</div>
   </div>
+</a>
+
+<a href="http://192.168.1.17" class="square-button">
+  <img src="2-icon.png" alt="2 Icon" class="button-icon" />
+  <div class="button-text">本地连接</div>
 </a>
 
 </body>
