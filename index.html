@@ -62,12 +62,12 @@
   }
 
   .square-button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
     color: #000;
-    padding: 0; /* 移除默认填充 */
     width: 80px; /* 修改为 80px */
     height: 80px; /* 修改为 80px */
     margin-top: 20px; /* 距离大按钮的底部距离 */
@@ -84,6 +84,10 @@
 
   .square-button .button-text {
     font-size: 14px; /* 调整文本大小 */
+    position: absolute;
+    bottom: 5px; /* 文本距离按钮底部的距离 */
+    width: 100%;
+    text-align: center; /* 让文本水平居中 */
   }
 </style>
 </head>
