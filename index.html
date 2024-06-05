@@ -105,7 +105,7 @@
     color: #000;
     position: absolute;
     left: calc(7% + 205px); /* 相对于小按钮向右偏移50px */
-    top: 50px; /* 距离上面的小按钮50px */
+    margin-top: -150px; /* 大按钮下方50px */
   }
 
   .second-button img {
@@ -115,18 +115,18 @@
     transform: translate(-50%, -50%);
   }
 
-  @media screen and (max-width: 767px) {
-    .small-button {
-      width: 120px;
-      height: 120px;
-      margin-top: 40px;
-      margin-left: calc(10% + 2px);
-    }
-    .second-button {
-      width: 120px;
-      height: 120px;
-      left: calc(10% + 202px); /* 相对于小按钮向右偏移50px */
-      top: 90px; /* 距离上面的小按钮50px */
+@media screen and (max-width: 767px) {
+  .small-button {
+    width: 135px;
+    height: 135px;
+    margin-top: 40px;
+    margin-left: 50px; /* 让小按钮水平居中 */
+  }
+  .second-button {
+    width: 135px;
+    height: 135px;
+    margin-left: 22px; /* 让二按钮水平居中 */
+    margin-top: -135px; 
     }
   }
 
@@ -154,12 +154,12 @@
   </div>
 </a>
 
-<a href="https://192.168.1.17" class="small-button">
+<a href="https://file.ddnsto.com:9443/?auth=eyJ1RW4iOiJJTjU1WmNBc1U2RUJfdDktZzlna2lkd3RzTXdPIiwicEVuIjoiOUx2bjQwVmV4Q1Z2SVoxT0lsbDVxMm04QkxXZDJtNVEiLCJyb290SWQiOiJjYmViNzQ5ZTFjZmI0NzE0YWIyYjk3OTI4MTI2MzExZiIsInJvdXRlcklkIjoiMDAxMTMyOTNiNDA0In0%3D#/"" class="small-button">
   <img src="2-icon.png" alt="Small Button Icon" class="storage-icon" />
 </a>
 
-<a href="https://192.168.1.17" class="second-button">
-  <img src="2-icon.png" alt="Second Button Icon" class="storage-icon" />
+<a href="https://file.ddnsto.com:9443/?auth=eyJ1RW4iOiJJTjU1WmNBc1U2RUJfdDktZzlna2lkd3RzTXdPIiwicEVuIjoiOUx2bjQwVmV4Q1Z2SVoxT0lsbDVxMm04QkxXZDJtNVEiLCJyb290SWQiOiJjYmViNzQ5ZTFjZmI0NzE0YWIyYjk3OTI4MTI2MzExZiIsInJvdXRlcklkIjoiMDAxMTMyOTNiNDA0In0%3D#/"" class="second-button">
+  <img src="3-icon.png" alt="Second Button Icon" class="storage-icon" />
 </a>
 
 </body>
