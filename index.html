@@ -12,7 +12,7 @@
     font-family: Arial, sans-serif;
   }
 
-  .plaque, .big-button, .button-two {
+  .plaque, .big-button {
     position: absolute;
     left: 20px;
     background-color: #333;
@@ -23,7 +23,7 @@
     font-weight: bold;
   }
 
-  .big-button, .button-two {
+  .big-button {
     top: 120px;
     background-color: #fff;
     color: #000;
@@ -31,13 +31,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     text-decoration: none;
-  }
-
-  .button-two {
-    top: 160px; /* 手机访问时按钮二距离上方 */
-    left: calc(8% + 2px); /* 手机访问时按钮二距离左边 */
-    width: 120px; /* 手机访问时按钮二边长 */
-    height: 120px; /* 手机访问时按钮二边长 */
   }
 
   .storage-icon {
@@ -48,22 +41,15 @@
   }
 
   @media screen and (min-width: 768px) {
-    .plaque, .big-button, .button-two {
+    .plaque, .big-button {
       left: 40px;
       padding: 20px 40px;
       font-size: 36px;
       border-radius: 30px;
     }
 
-    .big-button, .button-two {
+    .big-button {
       top: 240px;
-    }
-
-    .button-two {
-      top: 290px; /* 电脑访问时按钮二距离上方 */
-      left: calc(8% + 5px); /* 电脑访问时按钮二距离左边 */
-      width: 150px; /* 电脑访问时按钮二边长 */
-      height: 150px; /* 电脑访问时按钮二边长 */
     }
   }
 </style>
@@ -79,8 +65,6 @@
     <div class="ip-address">IP:192.168.1.17</div>
   </div>
 </a>
-
-<div class="button-two"></div>
 
 </body>
 </html>
