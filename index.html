@@ -41,7 +41,7 @@
     color: #000;
     padding: 20px;
     margin: 100px auto 0;
-    width: 86%; /* 调整按钮一宽度 */
+    width: 84%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -59,23 +59,23 @@
     width: 66px;
     height: 66px;
     margin-right: 20px;
-    border-radius: 50%;
   }
 
-  .button-two {
-    margin-top: 40px;
+  /* New button styling */
+  .small-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 150px;
     height: 150px;
-    background-color: #fff; /* 改为白色 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #fff;
+    margin-top: 50px; /* 距离大按钮50px */
+    margin-left: calc(7% + 5px); /* 相对于大按钮向右偏移7% + 5px */
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .button-two img {
-    width: 80px; /* 调整图标大小 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    text-decoration: none;
+    color: #000;
   }
 </style>
 </head>
@@ -83,17 +83,17 @@
 
 <div class="plaque">MyNas</div>
 
-<a href="https://iwlyfmyc.ddnsto.com:443" class="big-button">
+<a href="https://192.168.1.17" class="big-button">
   <img src="1-icon.png" alt="MyNas Icon" class="storage-icon" />
   <div class="button-text">
     <div class="title">MyNas</div>
-    <div class="ip-address">IP: 192.168.1.17</div>
+    <div class="ip-address">IP:192.168.1.17</div>
   </div>
 </a>
 
-<div class="button-two">
-  <img src="2-icon.png" alt="Button Two Icon" />
-</div>
+<a href="https://192.168.1.17" class="small-button">
+  <img src="2-icon.png" alt="Small Button Icon" class="storage-icon" />
+</a>
 
 </body>
 </html>
