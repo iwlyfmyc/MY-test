@@ -55,7 +55,6 @@
   }
 
   .storage-icon {
-    position: relative;
     width: 66px;
     height: 66px;
     margin-right: 20px;
@@ -77,13 +76,29 @@
     text-decoration: none;
     color: #000;
   }
+
+  @media screen and (max-width: 767px) {
+    .small-button {
+      width: 120px;
+      height: 120px;
+      margin-top: 40px;
+      margin-left: calc(10% + 2px);
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .small-button img {
+      width: 80px; /* 调整图标大小为80px */
+      height: 80px;
+    }
+  }
 </style>
 </head>
 <body>
 
 <div class="plaque">MyNas</div>
 
-<a href="http://192.168.1.17" class="big-button">
+<a href="https://192.168.1.17" class="big-button">
   <img src="1-icon.png" alt="MyNas Icon" class="storage-icon" />
   <div class="button-text">
     <div class="title">MyNas</div>
