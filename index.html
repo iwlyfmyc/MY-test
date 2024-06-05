@@ -12,8 +12,9 @@
     font-family: Arial, sans-serif;
   }
 
-  .plaque, .big-button {
+  .plaque {
     position: absolute;
+    top: 20px;
     left: 20px;
     background-color: #333;
     color: #fff;
@@ -23,25 +24,34 @@
     font-weight: bold;
   }
 
+  @media screen and (min-width: 768px) {
+    .plaque {
+      top: 40px;
+      left: 40px;
+      padding: 20px 40px;
+      font-size: 36px;
+      border-radius: 30px;
+    }
+  }
+
   .big-button {
-    top: 120px;
+    display: flex;
+    align-items: center;
     background-color: #fff;
     color: #000;
+    padding: 20px;
+    margin: 100px auto 0;
     width: 84%;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     text-decoration: none;
   }
 
-  .big-button.second {
-    top: 240px;
-    width: 150px;
-    height: 150px;
-    left: calc(50% - 75px);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @media screen and (min-width: 768px) {
+    .big-button {
+      margin-top: 200px;
+    }
   }
 
   .storage-icon {
@@ -49,27 +59,19 @@
     width: 66px;
     height: 66px;
     margin-right: 20px;
+    border-radius: 50%;
   }
 
-  .storage-icon.second {
-    margin: 0;
-  }
-
-  @media screen and (min-width: 768px) {
-    .plaque, .big-button {
-      left: 40px;
-      padding: 20px 40px;
-      font-size: 36px;
-      border-radius: 30px;
-    }
-
-    .big-button {
-      top: 240px;
-    }
-
-    .big-button.second {
-      top: 360px;
-    }
+  .button-two {
+    margin-top: 40px;
+    width: 150px;
+    height: 150px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 </style>
 </head>
@@ -81,13 +83,11 @@
   <img src="1-icon.png" alt="MyNas Icon" class="storage-icon" />
   <div class="button-text">
     <div class="title">MyNas</div>
-    <div class="ip-address">IP:192.168.1.17</div>
+    <div class="ip-address">IP: 192.168.1.17</div>
   </div>
 </a>
 
-<a href="https://iwlyfmyc.ddnsto.com:443" class="big-button second">
-  <img src="2-icon.png" alt="MyNas Icon" class="storage-icon second" />
-</a>
+<div class="button-two">Button Two</div>
 
 </body>
 </html>
