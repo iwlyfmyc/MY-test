@@ -91,6 +91,30 @@
     transform: translate(-50%, -50%);
   }
 
+  .second-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    position: absolute;
+    left: calc(7% + 205px); /* 相对于小按钮向右偏移50px */
+    top: 50px; /* 距离上面的小按钮50px */
+  }
+
+  .second-button img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   @media screen and (max-width: 767px) {
     .small-button {
       width: 120px;
@@ -98,10 +122,20 @@
       margin-top: 40px;
       margin-left: calc(10% + 2px);
     }
+    .second-button {
+      width: 120px;
+      height: 120px;
+      left: calc(10% + 202px); /* 相对于小按钮向右偏移50px */
+      top: 90px; /* 距离上面的小按钮50px */
+    }
   }
 
   @media screen and (min-width: 768px) {
     .small-button img {
+      width: 80px; /* 调整图标大小为80px */
+      height: 80px;
+    }
+    .second-button img {
       width: 80px; /* 调整图标大小为80px */
       height: 80px;
     }
@@ -122,6 +156,10 @@
 
 <a href="https://192.168.1.17" class="small-button">
   <img src="2-icon.png" alt="Small Button Icon" class="storage-icon" />
+</a>
+
+<a href="https://192.168.1.17" class="second-button">
+  <img src="2-icon.png" alt="Second Button Icon" class="storage-icon" />
 </a>
 
 </body>
