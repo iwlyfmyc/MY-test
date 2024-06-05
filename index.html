@@ -12,9 +12,8 @@
     font-family: Arial, sans-serif;
   }
 
-  .plaque {
+  .plaque, .big-button, .button-two {
     position: absolute;
-    top: 20px;
     left: 20px;
     background-color: #333;
     color: #fff;
@@ -24,37 +23,21 @@
     font-weight: bold;
   }
 
-  @media screen and (min-width: 768px) {
-    .plaque {
-      top: 40px;
-      left: 40px;
-      padding: 20px 40px;
-      font-size: 36px;
-      border-radius: 30px;
-    }
-  }
-
-  .big-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .big-button, .button-two {
+    top: 120px;
     background-color: #fff;
     color: #000;
-    padding: 20px;
-    margin: 100px auto 0;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
+    width: 84%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     text-decoration: none;
-    flex-wrap: wrap;
   }
 
-  @media screen and (min-width: 768px) {
-    .big-button {
-      margin-top: 200px;
-    }
+  .button-two {
+    top: 160px; /* 手机访问时按钮二距离上方 */
+    left: calc(8% + 2px); /* 手机访问时按钮二距离左边 */
+    width: 120px; /* 手机访问时按钮二边长 */
+    height: 120px; /* 手机访问时按钮二边长 */
   }
 
   .storage-icon {
@@ -64,30 +47,23 @@
     margin-right: 20px;
   }
 
-  .square-button {
-    display: block;
-    width: 150px;
-    height: 150px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    line-height: 150px;
-    position: absolute;
-    left: calc(7% + 5px);
-    top: calc(100% + 50px);
-    border: none;
-    border-radius: 5px;
-    font-size: 24px;
-    text-decoration: none;
-  }
+  @media screen and (min-width: 768px) {
+    .plaque, .big-button, .button-two {
+      left: 40px;
+      padding: 20px 40px;
+      font-size: 36px;
+      border-radius: 30px;
+    }
 
-  @media screen and (max-width: 768px) {
-    .square-button {
-      width: 120px;
-      height: 120px;
-      line-height: 120px;
-      left: calc(10% + 2px);
-      top: calc(100% + 40px);
+    .big-button, .button-two {
+      top: 240px;
+    }
+
+    .button-two {
+      top: 290px; /* 电脑访问时按钮二距离上方 */
+      left: calc(8% + 5px); /* 电脑访问时按钮二距离左边 */
+      width: 150px; /* 电脑访问时按钮二边长 */
+      height: 150px; /* 电脑访问时按钮二边长 */
     }
   }
 </style>
@@ -104,7 +80,7 @@
   </div>
 </a>
 
-<a href="#" class="square-button">按钮二</a>
+<div class="button-two"></div>
 
 </body>
 </html>
