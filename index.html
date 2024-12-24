@@ -52,7 +52,7 @@
         }
     </style>
     <script>
-        let searchEngineIndex = 0; // 当前搜索引擎索引：0 = 百度，1 = 谷歌，2 = 必应
+        let searchEngineIndex = 0; // 默认搜索引擎索引: 0 = 百度, 1 = 谷歌, 2 = 必应
 
         // 更新时间的函数
         function updateTime() {
@@ -70,26 +70,25 @@
             const searchInput = document.getElementById('search-input');
             const searchForm = document.getElementById('search-form');
 
-            // 确定当前搜索引擎并切换
             if (searchEngineIndex === 0) {
-                // 切换到百度
-                searchForm.action = 'https://www.baidu.com/s';
-                searchInput.name = 'wd'; // 百度使用参数名 wd
-                timeDisplay.style.color = '#D3D3D3'; // 淡灰色
-            } else if (searchEngineIndex === 1) {
                 // 切换到谷歌
                 searchForm.action = 'https://www.google.com/search';
                 searchInput.name = 'q'; // 谷歌使用参数名 q
                 timeDisplay.style.color = '#FF7F7F'; // 淡红色
-            } else if (searchEngineIndex === 2) {
+            } else if (searchEngineIndex === 1) {
                 // 切换到必应
                 searchForm.action = 'https://www.bing.com/search';
                 searchInput.name = 'q'; // 必应使用参数名 q
                 timeDisplay.style.color = '#ADD8E6'; // 淡蓝色
+            } else {
+                // 切换回百度
+                searchForm.action = 'https://www.baidu.com/s';
+                searchInput.name = 'wd'; // 百度使用参数名 wd
+                timeDisplay.style.color = '#D3D3D3'; // 淡灰色
             }
 
-            // 更新搜索引擎索引，确保按顺序切换
-            searchEngineIndex = (searchEngineIndex + 1) % 3;
+            // 更新搜索引擎索引（按顺序切换）
+            searchEngineIndex = (searchEngineIndex + 1) % 3; // 0 → 1 → 2 → 0
         }
 
         // 每秒刷新时间
