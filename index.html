@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>简洁起始页</title>
+  <title>my</title>
   <style>
     * {
       margin: 0;
@@ -22,6 +22,7 @@
     .search-box {
       display: flex;
       justify-content: center;
+      align-items: center;
       margin-bottom: 50px;
     }
     .search-box input {
@@ -30,18 +31,56 @@
       font-size: 18px;
       border-radius: 50px;
       border: 1px solid #ddd;
+      margin-right: 10px;
+    }
+    .search-box button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    .search-box button:hover {
+      background-color: #0056b3;
+    }
+    .search-engine-button {
+      margin-right: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="search-box">
-    <input type="text" placeholder="搜索..." id="searchInput" onkeydown="if(event.key === 'Enter'){search()}">
+    <div id="searchEngineButton" class="search-engine-button" onclick="toggleSearchEngine()">百度</div>
+    <input type="text" id="searchInput" onkeydown="if(event.key === 'Enter'){search()}" placeholder="">
+    <button onclick="search()">🔍</button>
   </div>
 
   <script>
+    let searchEngine = 'baidu';
+
+    function toggleSearchEngine() {
+      if (searchEngine === 'baidu') {
+        searchEngine = 'google';
+        document.getElementById('searchEngineButton').textContent = 'Google';
+      } else {
+        searchEngine = 'baidu';
+        document.getElementById('searchEngineButton').textContent = '百度';
+      }
+    }
+
     function search() {
-      var query = document.getElementById('searchInput').value;
-      window.location.href = "https://www.google.com/search?q=" + query;
+      const query = document.getElementById('searchInput').value;
+      if (searchEngine === 'baidu') {
+        window.location.href = "https://www.baidu.com/s?wd=" + query;
+      } else {
+        window.location.href = "https://www.google.com/search?q=" + query;
+      }
     }
   </script>
 </body>
