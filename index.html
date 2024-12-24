@@ -5,16 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>搜索主页</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .search-container {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 350px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 50px; /* 更圆润 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); /* 立体感 */
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #5c6bc0;
+            border: none;
+            border-radius: 50px; /* 更圆润 */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); /* 立体感 */
+        }
+
+        button:hover {
+            background-color: #3f51b5;
+        }
+
+        input[type="text"]:focus, button:focus {
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: transparent; /* 去掉提示文字 */
+        }
+    </style>
 </head>
 <body>
     <div class="search-container">
-        <h1>百度搜索</h1>
         <form action="https://www.baidu.com/s" method="get" target="_blank">
-            <input type="text" name="wd" id="search-box" placeholder="输入关键词搜索..." />
+            <input type="text" name="wd" id="search-box" />
             <button type="submit">搜索</button>
         </form>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
