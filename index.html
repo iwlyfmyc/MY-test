@@ -27,12 +27,22 @@
             font-size: 16px;
             border-radius: 30px; /* 圆润的形状 */
             outline: none;
-            transition: transform 0.2s ease; /* 平滑过渡效果 */
-            width: 300px; /* 设置搜索框的固定宽度 */
+            transition: transform 0.2s ease, width 0.2s ease; /* 平滑过渡效果，包括宽度 */
+            width: 80%; /* 默认宽度 */
+            max-width: 300px; /* 最大宽度 */
         }
 
         input[type="text"]:focus {
             transform: scale(1.5); /* 聚焦时放大150% */
+            width: 100%; /* 放大时搜索框宽度变为100%，即与屏幕等宽 */
+            max-width: 100%; /* 最大宽度变为屏幕宽度 */
+        }
+
+        /* 手机端响应式 */
+        @media screen and (max-width: 480px) {
+            input[type="text"] {
+                width: 70%; /* 初始宽度调整为70% */
+            }
         }
 
     </style>
