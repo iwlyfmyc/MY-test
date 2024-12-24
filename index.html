@@ -19,48 +19,53 @@
         /* 搜索容器 */
         .search-wrapper {
             display: flex;
+            flex-direction: column;
             align-items: center;
             background-color: #fff;
             border-radius: 30px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            padding: 20px;
             width: 600px;
         }
 
-        /* 左侧按钮 */
+        /* 搜索引擎切换按钮 */
         .engine-switcher {
             width: 100px;
             background-color: #007BFF;
             color: white;
             border: none;
-            border-radius: 30px 0 0 30px;
+            border-radius: 30px;
             padding: 10px;
             cursor: pointer;
             font-size: 14px;
+            margin-bottom: 10px;
         }
 
         /* 搜索框 */
         .search-input {
-            flex-grow: 1;
-            border: none;
+            width: 100%;
+            border: 1px solid #ddd;
             padding: 10px 20px;
             font-size: 16px;
+            border-radius: 30px;
             outline: none;
+            margin-bottom: 20px;
             box-sizing: border-box;
         }
 
-        /* 右侧搜索按钮 */
+        /* 搜索按钮 */
         .search-btn {
-            width: 100px;
+            width: 100%;
             background-color: #007BFF;
             color: white;
             border: none;
-            border-radius: 0 30px 30px 0;
-            padding: 10px;
+            border-radius: 30px;
+            padding: 12px;
             cursor: pointer;
             font-size: 14px;
         }
 
+        /* 悬停效果 */
         .search-btn:hover,
         .engine-switcher:hover {
             background-color: #0056b3;
@@ -71,18 +76,20 @@
 <body>
     <div class="search-wrapper">
         <button class="engine-switcher" onclick="toggleEngine()">百度</button>
-        <input type="text" class="search-input" id="search-input" placeholder="">
+        <input type="text" class="search-input" id="search-input" placeholder="请输入搜索内容">
         <button class="search-btn" onclick="search()">搜索</button>
     </div>
 
     <script>
         let currentEngine = 'baidu';
 
+        // 切换搜索引擎
         function toggleEngine() {
             currentEngine = currentEngine === 'baidu' ? 'google' : 'baidu';
             document.querySelector('.engine-switcher').textContent = currentEngine === 'baidu' ? '百度' : '谷歌';
         }
 
+        // 执行搜索
         function search() {
             const query = document.getElementById('search-input').value;
             let url;
