@@ -33,12 +33,15 @@
         input[type="text"]:focus {
             transform: scale(1.40); /* 聚焦时放大140% */
         }
+
     </style>
 </head>
 <body>
 
 <div class="search-container">
+    <!-- 添加表单，用于搜索功能 -->
     <form action="https://www.baidu.com/s" method="get">
+        <!-- 将搜索关键词传递给百度的参数 wd -->
         <input type="text" name="wd" placeholder="" />
     </form>
 </div>
