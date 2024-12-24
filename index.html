@@ -28,18 +28,20 @@
             border-radius: 20px; /* 圆润的形状 */
             outline: none;
             transition: transform 0.2s ease; /* 平滑过渡效果 */
+            width: 300px; /* 搜索框宽度 */
         }
 
         input[type="text"]:focus {
             transform: scale(1.40); /* 聚焦时放大140% */
         }
-
     </style>
 </head>
 <body>
 
 <div class="search-container">
-    <input type="text" placeholder="" />
+    <form action="https://www.baidu.com/s" method="get">
+        <input type="text" name="wd" placeholder="" />
+    </form>
 </div>
 
 </body>
