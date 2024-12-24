@@ -11,45 +11,27 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* 改为顶部对齐 */
+            align-items: flex-start; /* 向上对齐 */
             height: 100vh;
-            padding-top: 50px; /* 调整上方距离 */
-            width: 100%;
-            box-sizing: border-box; /* 计算宽度时包含边框和内边距 */
         }
 
         .search-container {
-            position: relative;
-            width: 100%;
             text-align: center;
+            margin-top: 50px; /* 向上移一定距离 */
         }
 
         input[type="text"] {
             background-color: #f0f0f0; /* 很淡的灰色 */
             border: 1px solid #ccc;
-            padding: 12px;
+            padding: 10px 20px;
             font-size: 16px;
-            border-radius: 30px; /* 圆润的形状 */
+            border-radius: 20px; /* 圆润的形状 */
             outline: none;
-            transition: transform 0.2s ease, width 0.2s ease; /* 平滑过渡效果，包括宽度 */
-            width: 80%; /* 默认宽度 */
-            max-width: 300px; /* 最大宽度 */
-            display: block;
-            margin: 0 auto;
+            transition: transform 0.2s ease; /* 平滑过渡效果 */
         }
 
         input[type="text"]:focus {
-            transform: scale(1.4); /* 聚焦时放大140% */
-            width: 100%; /* 放大时搜索框宽度变为100%，即与屏幕等宽 */
-            max-width: 100%; /* 最大宽度变为屏幕宽度 */
-            transform-origin: center center; /* 设置缩放中心为搜索框中心 */
-        }
-
-        /* 手机端响应式 */
-        @media screen and (max-width: 480px) {
-            input[type="text"] {
-                width: 70%; /* 初始宽度调整为70% */
-            }
+            transform: scale(1.40); /* 聚焦时放大140% */
         }
 
     </style>
