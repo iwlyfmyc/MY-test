@@ -24,12 +24,12 @@
             color: #87CEFA; /* 初始淡蓝色（百度） */
             cursor: pointer; /* 鼠标悬停变为手型 */
             transition: color 0.2s ease; /* 平滑过渡颜色 */
-            outline: none; /* 去掉光晕 */
+            outline: none; /* 去掉点击时的光晕 */
         }
 
         /* 取消点击时光晕 */
         .time-display:focus {
-            outline: none;
+            outline: none; /* 点击时去掉光晕 */
         }
 
         .search-container {
@@ -43,7 +43,7 @@
             font-size: 14px; /* 调小字体 */
             text-align: center; /* 输入文字居中 */
             border-radius: 20px; /* 圆润的形状 */
-            outline: none; /* 去掉点击时光晕 */
+            outline: none; /* 去掉点击时的光晕 */
             transition: transform 0.2s ease; /* 平滑过渡效果 */
         }
 
