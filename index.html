@@ -61,13 +61,16 @@
         // 切换搜索引擎的函数
         function toggleSearchEngine() {
             const timeDisplay = document.getElementById('time-display');
+            const searchInput = document.getElementById('search-input');
             const searchForm = document.getElementById('search-form');
 
             if (isBaidu) {
-                searchForm.action = 'https://www.google.com/search';
+                searchForm.action = 'https://www.google.com/search'; // 切换到谷歌
+                searchInput.name = 'q'; // 谷歌使用参数名 q
                 timeDisplay.style.color = '#FF7F7F'; // 淡红色
             } else {
-                searchForm.action = 'https://www.baidu.com/s';
+                searchForm.action = 'https://www.baidu.com/s'; // 切换到百度
+                searchInput.name = 'wd'; // 百度使用参数名 wd
                 timeDisplay.style.color = '#87CEFA'; // 淡蓝色
             }
 
@@ -82,13 +85,13 @@
 <body>
 
 <!-- 时间显示 -->
-<div class="time-display" id="time-display" onclick="toggleSearchEngine()"></div>
+<div class="time-display" id="time-display" onclick="toggleSearchEngine()">点击我切换搜索引擎</div>
 
 <div class="search-container">
     <!-- 搜索表单 -->
     <form id="search-form" action="https://www.baidu.com/s" method="get">
         <!-- 搜索框 -->
-        <input type="text" name="wd" placeholder="" />
+        <input type="text" id="search-input" name="wd" placeholder="" />
     </form>
 </div>
 
