@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Page</title>
+  <title>搜索页面</title>
   <style>
     * {
       margin: 0;
@@ -46,13 +46,12 @@
     }
 
     .search-btn.active {
-      transform: scale(0);
-      opacity: 0;
+      display: none;
     }
 
     .search-box.active {
       display: block;
-      animation: grow 0.4s ease-in-out forwards;
+      animation: grow 0.3s ease-in-out forwards;
     }
 
     @keyframes grow {
@@ -67,9 +66,10 @@
 </head>
 <body>
   <div class="container">
-    <button id="search-btn" class="search-btn">Search</button>
-    <input type="text" id="search-box" class="search-box" placeholder="Enter your search...">
+    <button id="search-btn" class="search-btn">搜索</button>
+    <input type="text" id="search-box" class="search-box" placeholder="请输入搜索内容...">
   </div>
+
   <script>
     const searchBtn = document.getElementById("search-btn");
     const searchBox = document.getElementById("search-box");
@@ -78,6 +78,14 @@
       searchBtn.classList.add("active");
       searchBox.classList.add("active");
       searchBox.focus();
+    });
+
+    // 点击空白处收回搜索框
+    document.addEventListener("click", (event) => {
+      if (!searchBox.contains(event.target) && event.target !== searchBtn) {
+        searchBtn.classList.remove("active");
+        searchBox.classList.remove("active");
+      }
     });
   </script>
 </body>
