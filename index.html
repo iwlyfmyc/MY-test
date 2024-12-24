@@ -70,6 +70,7 @@
             const searchInput = document.getElementById('search-input');
             const searchForm = document.getElementById('search-form');
 
+            // 确定当前搜索引擎并切换
             if (searchEngineIndex === 0) {
                 // 切换到百度
                 searchForm.action = 'https://www.baidu.com/s';
@@ -87,8 +88,8 @@
                 timeDisplay.style.color = '#ADD8E6'; // 淡蓝色
             }
 
-            // 更新搜索引擎索引
-            searchEngineIndex = (searchEngineIndex + 1) % 3; // 确保按顺序循环
+            // 更新搜索引擎索引，确保按顺序切换
+            searchEngineIndex = (searchEngineIndex + 1) % 3;
         }
 
         // 每秒刷新时间
