@@ -21,17 +21,21 @@
 
     .container {
       position: relative;
+      height: 100%;
     }
 
     .search-btn {
       padding: 15px 30px;
       border: none;
-      background-color: #4CAF50;
+      background: rgba(192, 192, 192, 0.4); /* 淡灰色，透明 */
       color: white;
       font-size: 16px;
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
+      backdrop-filter: blur(10px); /* 磨砂微透效果 */
+      position: absolute;
+      top: 25%; /* 设置按钮位置在1/4处 */
     }
 
     .search-box {
