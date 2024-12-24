@@ -22,8 +22,8 @@
     .search-box {
       display: flex;
       justify-content: center;
-      align-items: center;
       margin-bottom: 50px;
+      transition: all 0.3s ease;
     }
     .search-box input {
       width: 350px;
@@ -31,9 +31,13 @@
       font-size: 18px;
       border-radius: 50px;
       border: 1px solid #ddd;
-      margin-right: 10px;
     }
-    .search-box button {
+    .search-box input:focus {
+      transform: scale(1.1);
+      outline: none;
+      border-color: #007BFF;
+    }
+    button {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -41,46 +45,24 @@
       background-color: #007BFF;
       color: white;
       cursor: pointer;
+      margin-left: 10px;
     }
-    .search-box button:hover {
+    button:hover {
       background-color: #0056b3;
-    }
-    .search-engine-button {
-      margin-right: 20px;
-      padding: 10px;
-      border-radius: 5px;
-      background-color: #f4f4f4;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="search-box">
-    <div id="searchEngineButton" class="search-engine-button" onclick="toggleSearchEngine()">百度</div>
-    <input type="text" id="searchInput" onkeydown="if(event.key === 'Enter'){search()}" placeholder="">
+    <input type="text" id="searchInput" placeholder="" onkeydown="if(event.key === 'Enter'){search()}" />
     <button onclick="search()">🔍</button>
   </div>
 
   <script>
-    let searchEngine = 'baidu';
-
-    function toggleSearchEngine() {
-      if (searchEngine === 'baidu') {
-        searchEngine = 'google';
-        document.getElementById('searchEngineButton').textContent = 'Google';
-      } else {
-        searchEngine = 'baidu';
-        document.getElementById('searchEngineButton').textContent = '百度';
-      }
-    }
-
     function search() {
-      const query = document.getElementById('searchInput').value;
-      if (searchEngine === 'baidu') {
-        window.location.href = "https://www.baidu.com/s?wd=" + query;
-      } else {
-        window.location.href = "https://www.google.com/search?q=" + query;
-      }
+      var query = document.getElementById('searchInput').value;
+      var searchEngine = 'https://www.baidu.com/s?wd=' + query; // 默认百度搜索
+      window.location.href = searchEngine;
     }
   </script>
 </body>
