@@ -14,6 +14,7 @@
             justify-content: flex-start;
             align-items: center;
             height: 100vh;
+            position: relative; /* 必须设置相对定位才能使用绝对定位 */
         }
 
         .time-display {
@@ -54,7 +55,8 @@
         .footer-text {
             font-size: 8px; /* 设置字体大小为8px */
             color: gray; /* 设置字体颜色为灰色 */
-            margin-top: 300px; /* 设置距搜索框下方的间距为300px */
+            position: absolute;
+            bottom: 50px; /* 距离页面底部50px */
             font-family: Arial, sans-serif;
             text-align: center;
         }
