@@ -11,8 +11,9 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* 改为顶部对齐 */
             height: 100vh;
+            padding-top: 50px; /* 调整上方距离 */
         }
 
         .search-container {
@@ -22,15 +23,16 @@
         input[type="text"] {
             background-color: #f0f0f0; /* 很淡的灰色 */
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 12px;
             font-size: 16px;
-            border-radius: 4px;
+            border-radius: 30px; /* 圆润的形状 */
             outline: none;
             transition: transform 0.2s ease; /* 平滑过渡效果 */
+            width: 300px; /* 设置搜索框的固定宽度 */
         }
 
         input[type="text"]:focus {
-            transform: scale(1.25); /* 聚焦时放大125% */
+            transform: scale(1.5); /* 聚焦时放大150% */
         }
 
     </style>
@@ -38,7 +40,7 @@
 <body>
 
 <div class="search-container">
-    <input type="text" placeholder="请输入搜索内容..." />
+    <input type="text" placeholder="" />
 </div>
 
 </body>
