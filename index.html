@@ -30,8 +30,13 @@
             align-items: center;
         }
 
+        .search-box-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
         input[type="text"] {
-            width: 350px;
+            width: 245px; /* 初始宽度为原来 70% */
             padding: 12px;
             font-size: 16px;
             border: 2px solid #ccc;
@@ -42,6 +47,7 @@
         }
 
         input[type="text"]:focus {
+            width: 350px; /* 点击时恢复原宽度 */
             border-color: #5c6bc0; /* 聚焦时颜色变化 */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1); /* 聚焦时增加阴影 */
             outline: none;
@@ -70,9 +76,22 @@
             color: transparent; /* 去掉提示文字 */
         }
 
+        .engine-toggle-button {
+            padding: 12px 20px;
+            background-color: #f39c12;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .engine-toggle-button:hover {
+            background-color: #e67e22;
+        }
+
         @media (max-width: 768px) {
             input[type="text"] {
-                width: 280px; /* 手机屏幕上搜索框变小 */
+                width: 210px; /* 手机屏幕上搜索框变小 */
             }
 
             button {
@@ -82,7 +101,7 @@
 
         @media (max-width: 480px) {
             input[type="text"] {
-                width: 250px; /* 更小屏幕下变得更小 */
+                width: 180px; /* 更小屏幕下变得更小 */
             }
 
             button {
@@ -93,10 +112,32 @@
 </head>
 <body>
     <div class="search-container">
-        <form action="https://www.baidu.com/s" method="get" target="_blank">
-            <input type="text" name="wd" id="search-box" />
-            <button type="submit">搜索</button>
+        <form id="search-form" action="https://www.baidu.com/s" method="get" target="_blank">
+            <div class="search-box-wrapper">
+                <!-- 切换搜索引擎按钮 -->
+                <button type="button" class="engine-toggle-button" id="toggle-engine">百度</button>
+                <input type="text" name="wd" id="search-box" />
+                <button type="submit">搜索</button>
+            </div>
         </form>
     </div>
+
+    <script>
+        let isBaidu = true; // 初始为百度
+
+        const toggleButton = document.getElementById('toggle-engine');
+        const searchForm = document.getElementById('search-form');
+
+        toggleButton.addEventListener('click', function() {
+            isBaidu = !isBaidu;
+            if (isBaidu) {
+                toggleButton.innerText = '百度'; // 切换按钮文本
+                searchForm.action = 'https://www.baidu.com/s'; // 切换搜索引擎
+            } else {
+                toggleButton.innerText = 'Google'; // 切换按钮文本
+                searchForm.action = 'https://www.google.com/search'; // 切换搜索引擎
+            }
+        });
+    </script>
 </body>
 </html>
