@@ -21,7 +21,9 @@
             margin-top: 20px; /* 向上位置调高 */
             margin-bottom: 30px;
             font-family: Arial, sans-serif;
-            color: #999; /* 淡灰色 */
+            color: #87CEFA; /* 初始淡蓝色（百度） */
+            cursor: pointer; /* 鼠标悬停变成手型 */
+            transition: color 0.2s ease; /* 平滑过渡颜色 */
         }
 
         .search-container {
@@ -44,6 +46,8 @@
         }
     </style>
     <script>
+        let isBaidu = true; // 当前搜索引擎状态，默认为百度
+
         // 更新时间的函数
         function updateTime() {
             const timeDisplay = document.getElementById('time-display');
@@ -54,6 +58,22 @@
             timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
         }
 
+        // 切换搜索引擎的函数
+        function toggleSearchEngine() {
+            const timeDisplay = document.getElementById('time-display');
+            const searchForm = document.getElementById('search-form');
+
+            if (isBaidu) {
+                searchForm.action = 'https://www.google.com/search';
+                timeDisplay.style.color = '#FF7F7F'; // 淡红色
+            } else {
+                searchForm.action = 'https://www.baidu.com/s';
+                timeDisplay.style.color = '#87CEFA'; // 淡蓝色
+            }
+
+            isBaidu = !isBaidu; // 切换状态
+        }
+
         // 每秒刷新时间
         setInterval(updateTime, 1000);
         window.onload = updateTime; // 初始化时间
@@ -61,12 +81,13 @@
 </head>
 <body>
 
-<div class="time-display" id="time-display"></div>
+<!-- 时间显示 -->
+<div class="time-display" id="time-display" onclick="toggleSearchEngine()"></div>
 
 <div class="search-container">
-    <!-- 添加表单，用于搜索功能 -->
-    <form action="https://www.baidu.com/s" method="get">
-        <!-- 将搜索关键词传递给百度的参数 wd -->
+    <!-- 搜索表单 -->
+    <form id="search-form" action="https://www.baidu.com/s" method="get">
+        <!-- 搜索框 -->
         <input type="text" name="wd" placeholder="" />
     </form>
 </div>
