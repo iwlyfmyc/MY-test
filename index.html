@@ -33,24 +33,7 @@
         .search-box-wrapper {
             display: flex;
             align-items: center;
-        }
-
-        input[type="text"] {
-            width: 245px; /* 初始宽度为原来 70% */
-            padding: 12px;
-            font-size: 16px;
-            border: 2px solid #ccc;
-            border-radius: 50px; /* 圆润效果 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); /* 立体感 */
-            margin-right: 10px;
-            transition: all 0.3s ease; /* 添加过渡效果 */
-        }
-
-        input[type="text"]:focus {
-            width: 350px; /* 点击时恢复原宽度 */
-            border-color: #5c6bc0; /* 聚焦时颜色变化 */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1); /* 聚焦时增加阴影 */
-            outline: none;
+            transition: width 0.3s ease; /* 给搜索框增加过渡效果 */
         }
 
         button {
@@ -68,8 +51,28 @@
             background-color: #3f51b5;
         }
 
-        input[type="text"]:focus, button:focus {
+        .search-box-wrapper input[type="text"] {
+            width: 245px; /* 初始宽度为原来 70% */
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 50px; /* 圆润效果 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); /* 立体感 */
+            margin-right: 10px;
+            transition: width 0.3s ease, opacity 0.3s ease; /* 添加宽度过渡和隐藏左侧按钮的过渡 */
+        }
+
+        .search-box-wrapper input[type="text"]:focus {
+            width: 350px; /* 点击时只向左扩展 */
+            border-color: #5c6bc0; /* 聚焦时颜色变化 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1); /* 聚焦时增加阴影 */
             outline: none;
+        }
+
+        .search-box-wrapper input[type="text"]:focus + button, 
+        .search-box-wrapper input[type="text"]:focus + button + button {
+            opacity: 0; /* 聚焦时隐藏左侧按钮 */
+            pointer-events: none; /* 防止按钮点击 */
         }
 
         input[type="text"]::placeholder {
