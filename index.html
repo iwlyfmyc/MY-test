@@ -17,13 +17,18 @@
         }
 
         .time-display {
-            font-size: 48px; /* 时间字体更大 */
-            margin-top: 20px; /* 向上位置调高 */
-            margin-bottom: 30px;
+            font-size: 48px; /* 时间字体大小 */
+            margin-top: 40px; /* 微微下移时间 */
+            margin-bottom: 40px;
             font-family: Arial, sans-serif;
             color: #87CEFA; /* 初始淡蓝色（百度） */
-            cursor: pointer; /* 鼠标悬停变成手型 */
+            cursor: pointer; /* 鼠标悬停变为手型 */
             transition: color 0.2s ease; /* 平滑过渡颜色 */
+            outline: none; /* 去掉光晕 */
+        }
+
+        .time-display:focus {
+            outline: none; /* 防止点击产生光晕 */
         }
 
         .search-container {
@@ -37,7 +42,7 @@
             font-size: 14px; /* 调小字体 */
             text-align: center; /* 输入文字居中 */
             border-radius: 20px; /* 圆润的形状 */
-            outline: none;
+            outline: none; /* 去掉点击时光晕 */
             transition: transform 0.2s ease; /* 平滑过渡效果 */
         }
 
