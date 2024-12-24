@@ -1,96 +1,45 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>搜索页面</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索页</title>
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    body, html {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f0f0f0;
-    }
+        .search-container {
+            text-align: center;
+        }
 
-    .container {
-      position: relative;
-      height: 100%;
-    }
+        input[type="text"] {
+            background-color: #f0f0f0; /* 很淡的灰色 */
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            outline: none;
+            transition: transform 0.2s ease; /* 平滑过渡效果 */
+        }
 
-    .search-btn {
-      padding: 15px 30px;
-      border: none;
-      background: rgba(192, 192, 192, 0.4); /* 淡灰色，透明 */
-      color: white;
-      font-size: 16px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px); /* 磨砂微透效果 */
-      position: absolute;
-      top: 25%; /* 设置按钮位置在1/4处 */
-    }
+        input[type="text"]:focus {
+            transform: scale(1.25); /* 聚焦时放大125% */
+        }
 
-    .search-box {
-      display: none;
-      width: 300px;
-      padding: 15px;
-      border: 2px solid #4CAF50;
-      border-radius: 50px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .search-btn.active {
-      display: none;
-    }
-
-    .search-box.active {
-      display: block;
-      animation: grow 0.3s ease-in-out forwards;
-    }
-
-    @keyframes grow {
-      0% {
-        width: 0;
-      }
-      100% {
-        width: 300px;
-      }
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <div class="container">
-    <button id="search-btn" class="search-btn">搜索</button>
-    <input type="text" id="search-box" class="search-box" placeholder="请输入搜索内容...">
-  </div>
 
-  <script>
-    const searchBtn = document.getElementById("search-btn");
-    const searchBox = document.getElementById("search-box");
+<div class="search-container">
+    <input type="text" placeholder="请输入搜索内容..." />
+</div>
 
-    searchBtn.addEventListener("click", () => {
-      searchBtn.classList.add("active");
-      searchBox.classList.add("active");
-      searchBox.focus();
-    });
-
-    // 点击空白处收回搜索框
-    document.addEventListener("click", (event) => {
-      if (!searchBox.contains(event.target) && event.target !== searchBtn) {
-        searchBtn.classList.remove("active");
-        searchBox.classList.remove("active");
-      }
-    });
-  </script>
 </body>
 </html>
