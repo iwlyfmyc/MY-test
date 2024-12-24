@@ -33,7 +33,7 @@
         .search-box-wrapper {
             display: flex;
             align-items: center;
-            transition: width 0.3s ease; /* 给搜索框增加过渡效果 */
+            position: relative;
         }
 
         button {
@@ -59,7 +59,7 @@
             border-radius: 50px; /* 圆润效果 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); /* 立体感 */
             margin-right: 10px;
-            transition: width 0.3s ease, opacity 0.3s ease; /* 添加宽度过渡和隐藏左侧按钮的过渡 */
+            transition: width 0.3s ease; /* 只允许宽度过渡 */
         }
 
         .search-box-wrapper input[type="text"]:focus {
@@ -67,16 +67,6 @@
             border-color: #5c6bc0; /* 聚焦时颜色变化 */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1); /* 聚焦时增加阴影 */
             outline: none;
-        }
-
-        .search-box-wrapper input[type="text"]:focus + button, 
-        .search-box-wrapper input[type="text"]:focus + button + button {
-            opacity: 0; /* 聚焦时隐藏左侧按钮 */
-            pointer-events: none; /* 防止按钮点击 */
-        }
-
-        input[type="text"]::placeholder {
-            color: transparent; /* 去掉提示文字 */
         }
 
         .engine-toggle-button {
@@ -90,6 +80,15 @@
 
         .engine-toggle-button:hover {
             background-color: #e67e22;
+        }
+
+        .search-box-wrapper input[type="text"]:focus + .engine-toggle-button {
+            opacity: 0; /* 隐藏左侧按钮 */
+            pointer-events: none; /* 防止左侧按钮点击 */
+        }
+
+        input[type="text"]::placeholder {
+            color: transparent; /* 去掉提示文字 */
         }
 
         @media (max-width: 768px) {
@@ -119,7 +118,7 @@
             <div class="search-box-wrapper">
                 <!-- 切换搜索引擎按钮 -->
                 <button type="button" class="engine-toggle-button" id="toggle-engine">百度</button>
-                <input type="text" name="wd" id="search-box" />
+                <input type="text" name="wd" id="search-box" placeholder="请输入搜索内容..." />
                 <button type="submit">搜索</button>
             </div>
         </form>
