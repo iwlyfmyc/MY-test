@@ -24,12 +24,13 @@
             font-family: Arial, sans-serif;
             color: #D3D3D3;
             cursor: pointer;
-            transition: color 0.5s ease; /* 添加颜色平滑过渡 */
+            transition: color 0.5s ease;
             outline: none;
         }
 
         .search-container {
             text-align: center;
+            position: relative;
         }
 
         input[type="text"] {
@@ -41,6 +42,7 @@
             border-radius: 20px;
             outline: none;
             transition: transform 0.2s ease;
+            width: 300px;
         }
 
         input[type="text"]:focus {
@@ -55,6 +57,29 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
+
+        /* 搜索建议样式 */
+        .suggestions-container {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid #D3D3D3;
+            border-top: none;
+            z-index: 10;
+            display: none;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+
     </style>
     <script>
         let searchEngineIndex = 0;
@@ -90,21 +115,44 @@
             searchEngineIndex = (searchEngineIndex + 1) % 3;
         }
 
-        setInterval(updateTime, 1000);
-        window.onload = updateTime;
-    </script>
-</head>
-<body>
+        function showSuggestions() {
+            const inputText = document.getElementById('search-input').value;
+            const suggestionsContainer = document.getElementById('suggestions-container');
 
-<div class="time-display" id="time-display" onclick="toggleSearchEngine()">点击我切换搜索引擎</div>
+            if (inputText.trim() === '') {
+                suggestionsContainer.style.display = 'none';
+                return;
+            }
 
-<div class="search-container">
-    <form id="search-form" action="https://www.baidu.com/s" method="get">
-        <input type="text" id="search-input" name="wd" placeholder="" />
-    </form>
-</div>
+            const suggestions = getSuggestions(inputText);
+            const suggestionsList = document.getElementById('suggestions-list');
+            suggestionsList.innerHTML = ''; // 清空当前列表
 
-<div class="footer-text">有情人好聚好散</div>
+            suggestions.forEach(suggestion => {
+                const li = document.createElement('li');
+                li.classList.add('suggestion-item');
+                li.textContent = suggestion;
+                li.onclick = () => {
+                    document.getElementById('search-input').value = suggestion;
+                    suggestionsContainer.style.display = 'none';
+                };
+                suggestionsList.appendChild(li);
+            });
 
-</body>
-</html>
+            suggestionsContainer.style.display = suggestions.length > 0 ? 'block' : 'none';
+        }
+
+        // 用于模拟一些搜索建议，可以从这里获得数据，模拟基于输入的匹配。
+        function getSuggestions(inputText) {
+            const allSuggestions = [
+                '百度',
+                '百度一下',
+                '谷歌搜索',
+                'Google 搜索',
+                '必应',
+                '必应搜索',
+                '如何实现动态搜索',
+                '前端开发教程'
+            ];
+
+            return allSuggestions.filter(item => item.to
