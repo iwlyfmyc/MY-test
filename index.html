@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜索页</title>
+    <title>ml</title>
     <style>
         body {
             background-color: white;
@@ -14,18 +14,18 @@
             justify-content: flex-start;
             align-items: center;
             height: 100vh;
-            position: relative; /* 必须设置相对定位才能使用绝对定位 */
+            position: relative;
         }
 
         .time-display {
-            font-size: 36px; /* 时间字体大小 */
-            margin-top: 140px; /* 距离顶部间距 */
-            margin-bottom: 16px; /* 时间与搜索框的间距 */
+            font-size: 36px;
+            margin-top: 140px;
+            margin-bottom: 16px;
             font-family: Arial, sans-serif;
-            color: #D3D3D3; /* 默认淡灰色（百度） */
-            cursor: pointer; /* 鼠标悬停变为手型 */
-            transition: color 0.2s ease; /* 平滑过渡颜色 */
-            outline: none; /* 去掉点击时的光晕 */
+            color: #D3D3D3;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            outline: none;
         }
 
         .search-container {
@@ -33,34 +33,32 @@
         }
 
         input[type="text"] {
-            background-color: white; /* 默认背景色白色 */
-            border: 1px solid #D3D3D3; /* 边框淡灰色 */
+            background-color: white;
+            border: 1px solid #D3D3D3;
             padding: 10px 20px;
-            font-size: 14px; /* 字体大小 */
-            text-align: center; /* 文本居中 */
-            border-radius: 20px; /* 圆润形状 */
-            outline: none; /* 去掉点击时的光晕 */
-            transition: transform 0.2s ease, background-color 0.2s ease; /* 平滑过渡放大和颜色变化 */
+            font-size: 14px;
+            text-align: center;
+            border-radius: 20px;
+            outline: none;
+            transition: transform 0.2s ease;
         }
 
         input[type="text"]:focus {
-            transform: scale(1.40); /* 聚焦时放大 */
-            background-color: white; /* 聚焦时背景色白色 */
+            transform: scale(1.40);
         }
 
         .footer-text {
-            font-size: 8px; /* 字体大小 */
-            color: gray; /* 字体颜色灰色 */
+            font-size: 8px;
+            color: gray;
             position: absolute;
-            bottom: 50px; /* 距离底部50px */
+            bottom: 50px;
             font-family: Arial, sans-serif;
             text-align: center;
         }
     </style>
     <script>
-        let searchEngineIndex = 0; // 默认搜索引擎索引: 0 = 百度, 1 = 谷歌, 2 = 必应
+        let searchEngineIndex = 0;
 
-        // 更新时间的函数
         function updateTime() {
             const timeDisplay = document.getElementById('time-display');
             const now = new Date();
@@ -70,52 +68,42 @@
             timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
         }
 
-        // 切换搜索引擎的函数
         function toggleSearchEngine() {
             const timeDisplay = document.getElementById('time-display');
             const searchInput = document.getElementById('search-input');
             const searchForm = document.getElementById('search-form');
 
             if (searchEngineIndex === 0) {
-                // 切换到谷歌
                 searchForm.action = 'https://www.google.com/search';
-                searchInput.name = 'q'; // 谷歌使用参数名 q
-                timeDisplay.style.color = '#FF7F7F'; // 淡红色
+                searchInput.name = 'q';
+                timeDisplay.style.color = '#FF7F7F';
             } else if (searchEngineIndex === 1) {
-                // 切换到必应
                 searchForm.action = 'https://www.bing.com/search';
-                searchInput.name = 'q'; // 必应使用参数名 q
-                timeDisplay.style.color = '#ADD8E6'; // 淡蓝色
+                searchInput.name = 'q';
+                timeDisplay.style.color = '#ADD8E6';
             } else {
-                // 切换回百度
                 searchForm.action = 'https://www.baidu.com/s';
-                searchInput.name = 'wd'; // 百度使用参数名 wd
-                timeDisplay.style.color = '#D3D3D3'; // 淡灰色
+                searchInput.name = 'wd';
+                timeDisplay.style.color = '#D3D3D3';
             }
 
-            // 更新搜索引擎索引（按顺序切换）
-            searchEngineIndex = (searchEngineIndex + 1) % 3; // 0 → 1 → 2 → 0
+            searchEngineIndex = (searchEngineIndex + 1) % 3;
         }
 
-        // 每秒刷新时间
         setInterval(updateTime, 1000);
-        window.onload = updateTime; // 初始化时间
+        window.onload = updateTime;
     </script>
 </head>
 <body>
 
-<!-- 时间显示 -->
-<div class="time-display" id="time-display" onclick="toggleSearchEngine()">点击我切换搜索引擎</div>
+<div class="time-display" id="time-display" onclick="toggleSearchEngine()"></div>
 
 <div class="search-container">
-    <!-- 搜索表单 -->
     <form id="search-form" action="https://www.baidu.com/s" method="get">
-        <!-- 搜索框 -->
         <input type="text" id="search-input" name="wd" placeholder="" />
     </form>
 </div>
 
-<!-- 额外文字 -->
 <div class="footer-text">有情人好聚好散</div>
 
 </body>
