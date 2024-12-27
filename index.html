@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ml</title>
+    <title>搜索页</title>
     <style>
         body {
             background-color: white;
@@ -18,9 +18,9 @@
         }
 
         .time-display {
-            font-size: 36px; /* 修改时间字体大小 */
-            margin-top: 140px; /* 修改时间距离顶部的间距为140px */
-            margin-bottom: 16px; /* 时间与搜索框的间距为16px */
+            font-size: 36px; /* 时间字体大小 */
+            margin-top: 140px; /* 距离顶部间距 */
+            margin-bottom: 16px; /* 时间与搜索框的间距 */
             font-family: Arial, sans-serif;
             color: #D3D3D3; /* 默认淡灰色（百度） */
             cursor: pointer; /* 鼠标悬停变为手型 */
@@ -28,35 +28,31 @@
             outline: none; /* 去掉点击时的光晕 */
         }
 
-        /* 取消点击时光晕 */
-        .time-display:focus {
-            outline: none; /* 点击时去掉光晕 */
-        }
-
         .search-container {
             text-align: center;
         }
 
         input[type="text"] {
-            background-color: white; /* 修改背景色为白色 */
-            border: 1px solid #D3D3D3; /* 保留淡灰色边框 */
+            background-color: white; /* 默认背景色白色 */
+            border: 1px solid #D3D3D3; /* 边框淡灰色 */
             padding: 10px 20px;
-            font-size: 14px; /* 调小字体 */
-            text-align: center; /* 输入文字居中 */
-            border-radius: 20px; /* 圆润的形状 */
+            font-size: 14px; /* 字体大小 */
+            text-align: center; /* 文本居中 */
+            border-radius: 20px; /* 圆润形状 */
             outline: none; /* 去掉点击时的光晕 */
-            transition: transform 0.2s ease; /* 平滑过渡效果 */
+            transition: transform 0.2s ease, background-color 0.2s ease; /* 平滑过渡放大和颜色变化 */
         }
 
         input[type="text"]:focus {
-            transform: scale(1.40); /* 聚焦时放大140% */
+            transform: scale(1.40); /* 聚焦时放大 */
+            background-color: white; /* 聚焦时背景色白色 */
         }
 
         .footer-text {
-            font-size: 8px; /* 设置字体大小为8px */
-            color: gray; /* 设置字体颜色为灰色 */
+            font-size: 8px; /* 字体大小 */
+            color: gray; /* 字体颜色灰色 */
             position: absolute;
-            bottom: 50px; /* 距离页面底部50px */
+            bottom: 50px; /* 距离底部50px */
             font-family: Arial, sans-serif;
             text-align: center;
         }
