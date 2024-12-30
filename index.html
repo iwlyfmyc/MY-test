@@ -47,6 +47,14 @@
             transform: scale(1.40);
         }
 
+        /* Media query for screens larger than 600px (desktop view) */
+        @media (min-width: 600px) {
+            input[type="text"] {
+                padding: 20px 40px;  /* Increase padding for larger input */
+                font-size: 14px;  /* Keep the text size same */
+            }
+        }
+
         .footer-text {
             font-size: 8px;
             color: gray;
