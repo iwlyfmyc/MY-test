@@ -41,14 +41,22 @@
             border-radius: 20px;
             outline: none;
             transition: transform 0.2s ease;
+            width: 200px; /* 默认宽度 */
         }
 
         input[type="text"]:focus {
             transform: scale(1.40);
         }
 
+        /* Media query for screens larger than 600px (desktop view) */
+        @media (min-width: 600px) {
+            input[type="text"] {
+                width: 400px;  /* Double the width of the search box */
+            }
+        }
+
         .footer-text {
-            font-size: 16px;
+            font-size: 14px;  /* Increased the font size to 14px */
             color: gray;
             position: absolute;
             bottom: 50px;
